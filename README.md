@@ -89,6 +89,27 @@ El dashboard muestra información relevante:
 - Total de reservaciones realizadas
 - Reservaciones pendientes de aprobación
 
+## 💾 Base de Datos
+El proyecto incluye migraciones y seeders para configurar automáticamente la base de datos. No es necesario incluir un archivo SQL por separado, ya que las migraciones crearán todas las tablas necesarias:
+
+- users : Almacena información de usuarios (clientes y administradores)
+- rooms : Contiene las salas de coworking disponibles
+- reservations : Registra todas las reservaciones realizadas
+Los seeders poblarán la base de datos con:
+
+- Un usuario administrador
+- Un usuario cliente
+- Algunas salas de ejemplo
+## 🔧 Solución de Problemas Comunes
+### La aplicación no inicia
+- Verifica que todas las dependencias estén instaladas
+- Asegúrate de que la base de datos esté configurada correctamente
+- Comprueba los permisos de los directorios de almacenamiento
+### Error en las migraciones
+- Verifica la conexión a la base de datos
+- Asegúrate de que la base de datos exista
+- Ejecuta php artisan migrate:fresh --seed para reiniciar las migraciones
+
 ## 🔧 Solución de Problemas Comunes
 
 ### La aplicación no inicia

@@ -1,66 +1,102 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Sistema de Reservas de Coworking Test
+Este proyecto es una aplicación web desarrollada en Laravel para gestionar reservas de espacios en un coworking. La aplicación permite a los usuarios registrarse, iniciar sesión y reservar salas, mientras que los administradores pueden gestionar las salas y supervisar las reservaciones.
 
-## About Laravel
+## 📋 Requisitos Técnicos
+- PHP 8.1 (obligatorio)
+- MySQL 8.1
+- Composer
+- Node.js y NPM (para los assets)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ✨ Características Principales
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 👥 Roles de Usuario
+- **Administrador**:
+  - Gestión de salas (crear, editar, eliminar)
+  - Cambio de estado de reservaciones
+  - Visualización de reservaciones por sala
+  - Exportación a Excel de reservaciones
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Cliente**:
+  - Registro e inicio de sesión
+  - Reserva de salas disponibles
+  - Listado de reservaciones propias
+  - Cancelación de reservas pendientes
 
-## Learning Laravel
+### 🛠️ Funcionalidades
+- Reservas de salas con duración de una hora
+- Verificación automática de disponibilidad de salas
+- Gestión de estados de reservas (Pendiente, Aceptada, Rechazada)
+- Exportación de reservaciones a Excel
+- Interfaz responsiva con Bootstrap 5
+- Diseño moderno y amigable
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🚀 Instalación
+Sigue estos pasos para instalar y configurar la aplicación:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 1. Clonar el repositorio
+### 2. Instalar dependencias de PHP
+### 3. Configurar el archivo .env
+### 4. Configurar la base de datos
+Edita el archivo `.env` con tus credenciales de MySQL:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 5. Ejecutar migraciones y seeders
+### 6. Iniciar el servidor de desarrollo
+La aplicación estará disponible en: [http://localhost:8000](http://localhost:8000)
 
-## Laravel Sponsors
+## 🔑 Acceso al Sistema
+Después de ejecutar los seeders, podrás acceder con las siguientes credenciales:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Administrador:
+- Email: admin@example.com
+- Contraseña: password
 
-### Premium Partners
+### Cliente:
+- Puedes registrar un nuevo usuario desde la página de registro
+- O usar: cliente@example.com / password
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## 📁 Estructura del Proyecto
+- `app/Models`: Contiene los modelos de datos (User, Room, Reservation)
+- `app/Http/Controllers`: Controladores para gestionar las peticiones
+- `resources/views`: Vistas Blade para la interfaz de usuario
+- `routes`: Definición de rutas de la aplicación
+- `database/migrations`: Migraciones para crear las tablas en la base de datos
+- `database/seeders`: Seeders para poblar la base de datos con datos iniciales
 
-## Contributing
+## 📱 Uso de la Aplicación
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Para Clientes
+1. Registrarse o iniciar sesión
+2. Ver las salas disponibles en la página principal
+3. Seleccionar una sala para reservar haciendo clic en el botón "Reservar"
+4. Elegir fecha y hora para la reserva en el formulario
+5. Confirmar la reserva haciendo clic en "Crear Reservación"
+6. Ver el listado de reservas propias en "Mis Reservas"
+7. Cancelar reservas pendientes si es necesario
 
-## Code of Conduct
+### Para Administradores
+1. Iniciar sesión como administrador
+2. Acceder al panel de administración
+3. Gestionar salas (crear, editar, eliminar)
+4. Ver todas las reservaciones en la sección "Reservaciones"
+5. Filtrar reservaciones por sala usando el selector
+6. Cambiar el estado de las reservaciones (Pendiente, Aceptada, Rechazada)
+7. Exportar reservaciones a Excel haciendo clic en "Exportar a Excel"
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 📊 Dashboard de Administrador
+El dashboard muestra información relevante:
+- Total de salas disponibles
+- Total de reservaciones realizadas
+- Reservaciones pendientes de aprobación
 
-## Security Vulnerabilities
+## 🔧 Solución de Problemas Comunes
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### La aplicación no inicia
+- Verifica que todas las dependencias estén instaladas
+- Asegúrate de que la base de datos esté configurada correctamente
+- Comprueba los permisos de los directorios de almacenamiento
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Error en las migraciones
+- Verifica la conexión a la base de datos
+- Asegúrate de que la base de datos exista
+- Ejecuta `php artisan migrate:fresh --seed` para reiniciar las migraciones

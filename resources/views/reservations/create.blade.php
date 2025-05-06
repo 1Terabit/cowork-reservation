@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Crear Nueva Reservación</div>
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center min-vh-100 bg-white">
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white text-center py-3">
+                    <h4 class="mb-0">Crear Nueva Reservación</h4>
+                </div>
 
-                <div class="card-body">
+                <div class="card-body p-4">
                     <form method="POST" action="{{ route('reservations.store') }}">
                         @csrf
                         <input type="hidden" name="room_id" value="{{ $room->id }}">
@@ -34,7 +36,7 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label for="reservation_time" class="form-label">Hora</label>
                             <select class="form-select @error('reservation_time') is-invalid @enderror" 
                                     id="reservation_time" 
@@ -53,8 +55,14 @@
                             @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Crear Reservación</button>
-                        <a href="{{ route('rooms.index') }}" class="btn btn-secondary">Cancelar</a>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-calendar-plus"></i> Crear Reservación
+                            </button>
+                            <a href="{{ route('rooms.index') }}" class="btn btn-secondary">
+                                <i class="fas fa-times"></i> Cancelar
+                            </a>
+                        </div>
                     </form>
                 </div>
             </div>

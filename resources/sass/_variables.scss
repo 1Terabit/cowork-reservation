@@ -1,7 +1,31 @@
 // Body
 $body-bg: #f8fafc;
 
+// Colors
+$primary: #4f46e5;
+$secondary: #6b7280;
+$success: #10b981;
+$info: #3b82f6;
+$warning: #f59e0b;
+$danger: #ef4444;
+$light: #f3f4f6;
+$dark: #111827;
+
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
-$font-size-base: 0.9rem;
+$font-family-sans-serif: 'Inter', system-ui, -apple-system, sans-serif;
+$font-size-base: 0.95rem;
 $line-height-base: 1.6;
+
+// Containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1340px,
+  xxl: 1600px
+);
+
+// Cards
+$card-border-radius: 0.75rem;
+$card-border-width: 0;
+$card-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);

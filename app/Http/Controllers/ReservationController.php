@@ -6,7 +6,6 @@ use App\Models\Reservation;
 use App\Models\Room;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
@@ -22,20 +21,20 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        $reservations = auth()->user()->role === 'admin' 
+        $reservations = auth()->user()->role === 'admin'
             ? Reservation::with(['user', 'room'])->latest()->get()
             : auth()->user()->reservations()->with('room')->latest()->get();
-    
-        // Agregamos la colección de salas para el filtro
+
+        //TODO: colección de salas para el filtro
         $rooms = Room::all();
-    
+
         return view('reservations.index', compact('reservations', 'rooms'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        $rooms = Room::all();
-        return view('reservations.create', compact('rooms'));
+        $room = Room::findOrFail($request->room);
+        return view('reservations.create', compact('room'));
     }
 
     /**
@@ -65,7 +64,7 @@ class ReservationController extends Controller
         /** @var User $user */
         $user = auth()->user();
         $reservation = $user->reservations()->create($validated);
-        
+
         return redirect()->route('reservations.index')->with('success', 'Reserva creada exitosamente.');
     }
 
